@@ -51,7 +51,7 @@ function init(data) {
 
     if (productFilter !== null && productFilter.length > 0) {
       productFilter.forEach((product) => {
-        const { strMealThumb, strMeal } = product;
+        const { strMealThumb, strMeal, idMeal } = product;
 
         containerProducts.innerHTML += `
             <div class="product">
@@ -60,7 +60,7 @@ function init(data) {
                 </div>
                 <h4 class="product__title">${strMeal}</h4>
                 <div class="product__more">
-                     <a href="#" id="${id++}" class="product__btn">Show recipe</a>
+                     <a href="./pages/detailProduct.html?id=${idMeal}" id="${id++}" class="product__btn">Show recipe</a>
                 </div>
           </div>
             `;
