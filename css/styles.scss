@@ -85,6 +85,7 @@ main {
         flex-direction: column;
         justify-content: space-between;
         text-align: center;
+        position: relative;
         &__image {
           width: 10rem;
           margin: 0 auto;
@@ -102,6 +103,32 @@ main {
             color: #ffa500;
             font-size: 0.8rem;
           }
+        }
+      }
+      .product__heart {
+        position: absolute;
+        top: 0.4rem;
+        right: 1.4rem;
+        opacity: 1;
+        width: 1.3rem;
+        height: 1.3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #fdfdfd;
+        border-radius: 100%;
+        transition: 0.3s;
+        color: #ffa500;
+
+        .bi-heart {
+          font-size: 0.7rem;
+          padding: 0.1rem 0 0 0.05rem;
+        }
+        &:hover {
+          transition: 0.3s;
+          background-color: #ffa500;
+          color: #fdfdfd;
+          cursor: pointer;
         }
       }
     }
@@ -159,6 +186,7 @@ main {
           }
           button {
             padding-right: 0.4rem;
+            cursor: pointer;
           }
         }
       }
@@ -177,6 +205,11 @@ main {
               width: 100%;
             }
           }
+        }
+        .product__heart {
+          right: 0.6rem;
+          width: 1.8rem;
+          height: 1.8rem;
         }
       }
     }
@@ -204,6 +237,26 @@ main {
           &__image {
             width: 12rem;
           }
+          &:hover .product__heart {
+            transform: translateX(-50%);
+            opacity: 1;
+          }
+          .active {
+            transform: translateX(-50%);
+            opacity: 1;
+            background-color: #ffa500;
+            color: #fdfdfd;
+          }
+          .remove {
+            background-color: #fdfdfd;
+            color: #ffa500;
+          }
+        }
+
+        .product__heart {
+          opacity: 0;
+          width: 1.8rem;
+          height: 1.8rem;
         }
       }
     }

@@ -81,6 +81,7 @@ main .container__products .products .product {
   flex-direction: column;
   justify-content: space-between;
   text-align: center;
+  position: relative;
 }
 main .container__products .products .product__image {
   width: 10rem;
@@ -98,6 +99,31 @@ main .container__products .products .product__more a {
   text-decoration: none;
   color: #ffa500;
   font-size: 0.8rem;
+}
+main .container__products .products .product__heart {
+  position: absolute;
+  top: 0.4rem;
+  right: 1.4rem;
+  opacity: 1;
+  width: 1.3rem;
+  height: 1.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fdfdfd;
+  border-radius: 100%;
+  transition: 0.3s;
+  color: #ffa500;
+}
+main .container__products .products .product__heart .bi-heart {
+  font-size: 0.7rem;
+  padding: 0.1rem 0 0 0.05rem;
+}
+main .container__products .products .product__heart:hover {
+  transition: 0.3s;
+  background-color: #ffa500;
+  color: #fdfdfd;
+  cursor: pointer;
 }
 main .container__products-detail {
   width: 100%;
@@ -145,6 +171,7 @@ main .container__products-detail .products-detail .product-instructions {
   }
   main .container .search__input .search__input-container button {
     padding-right: 0.4rem;
+    cursor: pointer;
   }
   main .container__products {
     width: 65%;
@@ -163,6 +190,11 @@ main .container__products-detail .products-detail .product-instructions {
   main .container__products .products .product__image img {
     width: 100%;
   }
+  main .container__products .products .product__heart {
+    right: 0.6rem;
+    width: 1.8rem;
+    height: 1.8rem;
+  }
   main .container__products-detail .products-detail .product__detail-image img {
     width: 60%;
   }
@@ -176,6 +208,25 @@ main .container__products-detail .products-detail .product-instructions {
   }
   main .container__products .products .product__image {
     width: 12rem;
+  }
+  main .container__products .products .product:hover .product__heart {
+    transform: translateX(-50%);
+    opacity: 1;
+  }
+  main .container__products .products .product .active {
+    transform: translateX(-50%);
+    opacity: 1;
+    background-color: #ffa500;
+    color: #fdfdfd;
+  }
+  main .container__products .products .product .remove {
+    background-color: #fdfdfd;
+    color: #ffa500;
+  }
+  main .container__products .products .product__heart {
+    opacity: 0;
+    width: 1.8rem;
+    height: 1.8rem;
   }
   main .container__products-detail .products-detail .product__detail-image img {
     width: 30%;

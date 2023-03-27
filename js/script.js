@@ -15,6 +15,7 @@ async function search(search) {
   await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${search}`)
     .then((response) => response.json())
     .then((json) => (data = json.meals));
+
   init(data);
 }
 
@@ -55,6 +56,9 @@ function init(data) {
 
         containerProducts.innerHTML += `
             <div class="product">
+              <div id="${idMeal}" class="product__heart">
+                <i class="bi bi-heart"></i>
+              </div>
                 <div class="product__image">
                     <img src="${strMealThumb}" alt="${strMeal}" />
                 </div>
@@ -64,11 +68,35 @@ function init(data) {
                 </div>
           </div>
             `;
+        showHeart();
       });
     }
   } else {
     containerProducts.innerHTML = "";
     document.body.style.display = "flex";
     containerProducts.appendChild(messageEmpty);
+  }
+}
+
+function showHeart() {
+  const btnHeart = document.querySelectorAll(".product__heart");
+
+  btnHeart.forEach((btn) => btn.addEventListener("click", heartAction));
+}
+
+const productFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+function heartAction(e) {
+  const idHeart = e.currentTarget.id;
+
+  // e.currentTarget.style.backgroundColor = "#ffa500";
+  // e.currentTarget.style.color = "#fdfdfd";
+  // e.currentTarget.style.opacity = 1;
+  // e.currentTarget.style.right = "1.4rem";
+
+  if (!productFavorites.includes(idHeart)) {
+    productFavorites.push(idHeart);
+
+    localStorage.setItem("favorites", JSON.stringify(productFavorites));
   }
 }
