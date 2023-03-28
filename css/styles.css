@@ -26,6 +26,9 @@ body {
   justify-content: center;
 }
 
+header {
+  margin-top: 5rem;
+}
 header nav h1 {
   margin-top: 2rem;
   font-size: 1.3rem;
@@ -100,6 +103,16 @@ main .container__products .products .product__more a {
   color: #ffa500;
   font-size: 0.8rem;
 }
+main .container__products .products .product .active {
+  transform: translateX(10%);
+  opacity: 1;
+  background-color: #ffa500;
+  color: #fdfdfd;
+}
+main .container__products .products .product .remove {
+  background-color: #fdfdfd;
+  color: #ffa500;
+}
 main .container__products .products .product__heart {
   position: absolute;
   top: 0.4rem;
@@ -152,6 +165,24 @@ main .container__products-detail .products-detail .product-instructions {
   margin: 0.5rem auto 1rem;
   text-align: center;
   font-size: 0.7rem;
+}
+main .link-heart {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  background-color: #fdfdfd;
+  color: #ffa500;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 0.1rem;
+  border-radius: 100%;
+}
+main .link-heart:hover {
+  background-color: #ffa500;
+  color: #fdfdfd;
 }
 
 @media (min-width: 767px) {

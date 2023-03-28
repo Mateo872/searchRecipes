@@ -81,6 +81,12 @@ function init(data) {
 function showHeart() {
   const btnHeart = document.querySelectorAll(".product__heart");
 
+  btnHeart.forEach((btn) => {
+    if (window.innerWidth < 330) {
+      btn.classList.add("active");
+    }
+  });
+
   btnHeart.forEach((btn) => btn.addEventListener("click", heartAction));
 }
 
@@ -89,10 +95,12 @@ const productFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
 function heartAction(e) {
   const idHeart = e.currentTarget.id;
 
-  // e.currentTarget.style.backgroundColor = "#ffa500";
-  // e.currentTarget.style.color = "#fdfdfd";
-  // e.currentTarget.style.opacity = 1;
-  // e.currentTarget.style.right = "1.4rem";
+  if (window.innerWidth > 980) {
+    (e.currentTarget.style.backgroundColor = "#ffa500"),
+      (e.currentTarget.style.color = "#fdfdfd"),
+      (e.currentTarget.style.opacity = 1),
+      (e.currentTarget.style.transform = "translateX(-50%)");
+  }
 
   if (!productFavorites.includes(idHeart)) {
     productFavorites.push(idHeart);

@@ -98,12 +98,23 @@ function init(data) {
 function productHeart() {
   const btnProductShow = document.querySelectorAll(".product__heart");
 
-  //   btnProductShow.forEach((btn) => {
-  //     btn.addEventListener("mouseover", () => {
-  //       btn.classList.add("remove");
-  //     });
-  //     btn.addEventListener("mouseout", () => {
-  //       btn.classList.remove("remove");
-  //     });
-  //   });
+  btnProductShow.forEach((btn) => {
+    btn.addEventListener("mouseover", () => {
+      btn.classList.add("remove");
+    });
+    btn.addEventListener("mouseout", () => {
+      btn.classList.remove("remove");
+    });
+  });
+
+  btnProductShow.forEach((btn) => btn.addEventListener("click", btnProduct));
+}
+
+function btnProduct(e) {
+  const filter = favoritesFilter.filter(
+    (filter) => filter.idMeal !== e.currentTarget.id
+  );
+
+  localStorage.setItem("favorites", JSON.stringify(filter));
+  init(filter);
 }
