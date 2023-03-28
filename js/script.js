@@ -82,29 +82,34 @@ function showHeart() {
   const btnHeart = document.querySelectorAll(".product__heart");
 
   btnHeart.forEach((btn) => {
-    if (window.innerWidth < 330) {
-      btn.classList.add("active");
-    }
+    btn.addEventListener("click", (e) => {
+      if (window.innerWidth < 330) {
+        e.currentTarget.style.right = ".8rem";
+      }
+    });
   });
 
   btnHeart.forEach((btn) => btn.addEventListener("click", heartAction));
 }
+
+let badgeText = document.querySelector(".badge-text");
 
 const productFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
 
 function heartAction(e) {
   const idHeart = e.currentTarget.id;
 
-  if (window.innerWidth > 980) {
-    (e.currentTarget.style.backgroundColor = "#ffa500"),
-      (e.currentTarget.style.color = "#fdfdfd"),
-      (e.currentTarget.style.opacity = 1),
-      (e.currentTarget.style.transform = "translateX(-50%)");
-  }
+  (e.currentTarget.style.backgroundColor = "#ffa500"),
+    (e.currentTarget.style.color = "#fdfdfd"),
+    (e.currentTarget.style.opacity = 1),
+    (e.currentTarget.style.transform = "translateX(-50%)");
 
   if (!productFavorites.includes(idHeart)) {
     productFavorites.push(idHeart);
 
     localStorage.setItem("favorites", JSON.stringify(productFavorites));
+    badgeText.textContent = productFavorites.length;
   }
 }
+
+badgeText.textContent = productFavorites.length;

@@ -116,6 +116,7 @@ main {
           color: #ffa500;
         }
       }
+
       .product__heart {
         position: absolute;
         top: 0.4rem;
@@ -143,6 +144,19 @@ main {
         }
       }
     }
+  }
+
+  .badge {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 100%;
+    background-color: #fff;
+    position: absolute;
+    top: 3.3rem;
+    right: 1.6rem;
+    color: #1e1e1e;
+    text-align: center;
+    font-size: 0.7rem;
   }
 
   .container__products-detail {
